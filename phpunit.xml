@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheResult ="false"
+         verbose="true"
+         colors="true">
+    <testsuites>
+        <testsuite name="OpenHA Configurator unit tests">
+            <directory>tests/unit</directory>
+        </testsuite>
+    </testsuites>
+    <coverage>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <report>
+            <html outputDirectory="var/tests/coverage"/>
+        </report>
+    </coverage>
+    <logging>
+        <testdoxHtml outputFile="var/tests/unit/index.html"/>
+    </logging>
+</phpunit>
