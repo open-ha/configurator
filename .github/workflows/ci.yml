@@ -1,0 +1,31 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+
+      - name: Run unit tests
+        uses: php-actions/phpunit@v3
+        env:
+          XDEBUG_MODE: coverage
+        with:
+          configuration: phpunit.xml
+          php_extensions: xdebug
+          args: --coverage-clover ./var/tests/coverage.xml
+
+      - name: Upload to codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODE_COV_TOKEN }}
+          files: ./var/tests/coverage.xml
+          verbose: true
