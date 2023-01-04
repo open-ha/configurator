@@ -4,5 +4,5 @@ namespace OpenHa\Configurator\Config;
 
 interface SerializerInterface
 {
-    public function serialize(array $data): string;
+    public function serialize(array $config): string;
 }

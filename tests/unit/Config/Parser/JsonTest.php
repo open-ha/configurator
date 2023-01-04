@@ -33,17 +33,17 @@ class JsonTest extends TestCase
      * @dataProvider \OpenHa\Configurator\Test\Unit\DataProvider\Json::unescapedUtf8Json
      * @dataProvider \OpenHa\Configurator\Test\Unit\DataProvider\Json::escapedUtf8Json
      */
-    public function testParseMethodReturnsArray(string $json, array $dataArray): void
+    public function testParseMethodReturnsArray(string $serializedConfig, array $config): void
     {
-        $this->assertEquals($dataArray, $this->instance->parse($json));
+        $this->assertEquals($config, $this->instance->parse($serializedConfig));
     }
 
     /**
      * @dataProvider \OpenHa\Configurator\Test\Unit\DataProvider\Json::invalidJson
      */
-    public function testParseMethodThrowsExceptionOnInvalidJson(string $json): void
+    public function testParseMethodThrowsExceptionOnInvalidJson(string $serializedConfig): void
     {
         $this->expectException(\Exception::class);
-        $this->instance->parse($json);
+        $this->instance->parse($serializedConfig);
     }
 }

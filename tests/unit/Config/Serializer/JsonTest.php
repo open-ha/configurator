@@ -32,18 +32,18 @@ class JsonTest extends TestCase
      * @dataProvider \OpenHa\Configurator\Test\Unit\DataProvider\Json::json
      * @dataProvider \OpenHa\Configurator\Test\Unit\DataProvider\Json::unescapedUtf8Json
      */
-    public function testSerializeMethodReturnsString(string $json, array $dataArray): void
+    public function testSerializeMethodReturnsString(string $serializedConfig, array $config): void
     {
-        $this->assertEquals($json, $this->instance->serialize($dataArray));
+        $this->assertEquals($serializedConfig, $this->instance->serialize($config));
     }
 
     /**
      * @dataProvider \OpenHa\Configurator\Test\Unit\DataProvider\Json::unserializableData
      * @psalm-suppress MissingParamType, MixedArgument
      */
-    public function testSerializeMethodRaisesErrorOnUnserializableData($data): void
+    public function testSerializeMethodRaisesErrorOnUnserializableData($config): void
     {
         $this->expectError();
-        $this->instance->serialize($data);
+        $this->instance->serialize($config);
     }
 }
