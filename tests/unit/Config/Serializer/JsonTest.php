@@ -43,7 +43,7 @@ class JsonTest extends TestCase
      */
     public function testSerializeMethodRaisesErrorOnUnserializableData($config): void
     {
-        $this->expectError();
+        $this->expectException(\TypeError::class);
         $this->instance->serialize($config);
     }
 }

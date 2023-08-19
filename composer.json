@@ -4,8 +4,8 @@
         "sort-packages": true
     },
     "require": {
-        "symfony/console": "^5.4",
-        "symfony/dependency-injection": "^5.4"
+        "symfony/console": "^6.1",
+        "symfony/dependency-injection": "^6.1"
     },
     "require-dev": {
         "mikey179/vfsstream": "^1.6",
@@ -21,7 +21,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "OpenHa\\Configurator\\Test\\Unit\\": "tests/unit/"
+            "OpenHa\\Configurator\\Test\\Unit\\": "tests/unit/",
+            "OpenHa\\Configurator\\Test\\Integration\\": "tests/integration/"
         }
     },
     "bin": ["bin/openha-configurator"]
