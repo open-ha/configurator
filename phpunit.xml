@@ -8,6 +8,9 @@
         <testsuite name="OpenHA Configurator unit tests">
             <directory>tests/unit</directory>
         </testsuite>
+        <testsuite name="OpenHA Configurator integration tests">
+            <directory>tests/integration</directory>
+        </testsuite>
     </testsuites>
     <coverage>
         <include>
