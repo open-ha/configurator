@@ -15,7 +15,7 @@ jobs:
         uses: php-actions/composer@v6
 
       - name: Psalm static analysis
-        uses: psalm/psalm-github-actions
+        uses: docker://ghcr.io/psalm/psalm-github-actions
         with:
           security_analysis: true
           report_file: results.sarif
