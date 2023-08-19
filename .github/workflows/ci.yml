@@ -14,6 +14,17 @@ jobs:
       - name: Install dependencies
         uses: php-actions/composer@v6
 
+      - name: Psalm static analysis
+        uses: psalm/psalm-github-actions
+        with:
+          security_analysis: true
+          report_file: results.sarif
+
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: results.sarif
+
       - name: Run unit tests
         uses: php-actions/phpunit@v3
         env:
@@ -24,7 +35,7 @@ jobs:
           args: --coverage-clover ./var/tests/coverage.xml
 
       - name: Upload to codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODE_COV_TOKEN }}
           files: ./var/tests/coverage.xml
